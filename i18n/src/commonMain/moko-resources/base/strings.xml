@@ -177,6 +177,16 @@
     <string name="onboarding_description">Let\'s set some things up first. You can always change these in the settings later too.</string>
     <string name="onboarding_action_next">Next</string>
     <string name="onboarding_action_finish">Get started</string>
+    <string name="onboarding_welcome_point_privacy">Your collection stays yours. Everything is stored on your device, with no account and no trackers.</string>
+    <string name="onboarding_welcome_point_sources">Reading sources are added through extensions, from repositories you choose yourself.</string>
+    <string name="onboarding_welcome_point_fork">Zekai is a fork of Mihon, developed separately, with a familiar look.</string>
+    <string name="onboarding_guides_sources_title">Adding reading sources</string>
+    <string name="onboarding_guides_sources_body">Zekai does not include any reading sources. Add them from Browse, then Extensions, using an extension repository of your choice.</string>
+    <string name="library_continue_reading_title">Continue reading</string>
+    <string name="reader_preset_title">Reading preset</string>
+    <string name="reader_preset_manga">Manga</string>
+    <string name="reader_preset_manhwa">Manhwa</string>
+    <string name="reader_preset_webtoon">Webtoon</string>
     <string name="onboarding_storage_info">Select a folder where %1$s will store chapter downloads, backups, and more.\n\nA dedicated folder is recommended.\n\nSelected folder: %2$s</string>
     <string name="onboarding_storage_action_select">Select a folder</string>
     <string name="onboarding_storage_help_info">Updating from an older version and not sure what to select? Refer to the storage guide for more information.</string>

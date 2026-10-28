@@ -3,12 +3,18 @@
     android:height="108dp"
     android:viewportWidth="432"
     android:viewportHeight="432">
-  <!-- Zekai monochrome launcher icon: Z only, single color. -->
+  <!-- Zekai monochrome launcher icon: enso ring and Z, single color. -->
   <path
-      android:pathData="M140,150 L292,150 L140,282 L292,282"
+      android:pathData="M309,309 A132,132 0 1 1 336,160"
       android:fillColor="#00000000"
       android:strokeColor="#FFFFFFFF"
-      android:strokeWidth="34"
+      android:strokeWidth="16"
+      android:strokeLineCap="round" />
+  <path
+      android:pathData="M158,158 L274,158 L158,274 L274,274"
+      android:fillColor="#00000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeWidth="36"
       android:strokeLineCap="round"
-      android:strokeLineJoin="round"/>
+      android:strokeLineJoin="round" />
 </vector>

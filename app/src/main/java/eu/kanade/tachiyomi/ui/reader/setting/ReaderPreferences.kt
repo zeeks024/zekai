@@ -69,6 +69,12 @@ class ReaderPreferences(
         ReadingMode.RIGHT_TO_LEFT.flagValue,
     )
 
+    // Zekai reading preset: a bundle of the preferences below, applied when
+    // the user picks a preset. The individual preferences stay authoritative
+    // afterwards; this value only records the last preset that was picked.
+    // 0 = Manga, 1 = Manhwa, 2 = Webtoon.
+    val readerPreset: Preference<Int> = preferenceStore.getInt("pref_reader_preset_key", 0)
+
     val defaultOrientationType: Preference<Int> = preferenceStore.getInt(
         "pref_default_orientation_type_key",
         ReaderOrientation.FREE.flagValue,

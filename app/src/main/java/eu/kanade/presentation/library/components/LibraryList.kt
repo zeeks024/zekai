@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import eu.kanade.tachiyomi.ui.library.LibraryItem
@@ -34,6 +35,19 @@ internal fun LibraryList(
                     modifier = Modifier.fillMaxWidth(),
                     searchQuery = searchQuery,
                     onClick = onGlobalSearchClicked,
+                )
+            }
+        }
+
+        val shelfItems = remember(items) { items.continueReadingShelfItems() }
+        if (shelfItems.isNotEmpty() && onClickContinueReading != null) {
+            item(contentType = { "library_continue_reading_shelf" }) {
+                ContinueReadingShelf(
+                    items = shelfItems,
+                    selection = selection,
+                    onClick = onClick,
+                    onLongClick = onLongClick,
+                    onClickContinueReading = onClickContinueReading,
                 )
             }
         }

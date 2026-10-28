@@ -30,6 +30,7 @@ object SettingsReaderScreen : SearchableSettings {
         val readerPref = remember { context.appGraph.readerPreferences }
 
         return listOf(
+            getPresetGroup(readerPreferences = readerPref),
             Preference.PreferenceItem.ListPreference(
                 preference = readerPref.defaultReadingMode,
                 entries = ReadingMode.entries.drop(1)
@@ -71,6 +72,47 @@ object SettingsReaderScreen : SearchableSettings {
             getWebtoonGroup(readerPreferences = readerPref),
             getNavigationGroup(readerPreferences = readerPref),
             getActionsGroup(readerPreferences = readerPref),
+        )
+    }
+
+    @Composable
+    private fun getPresetGroup(readerPreferences: ReaderPreferences): Preference.PreferenceGroup {
+        return Preference.PreferenceGroup(
+            title = stringResource(MR.strings.reader_preset_title),
+            preferenceItems = listOf(
+                Preference.PreferenceItem.ListPreference(
+                    preference = readerPreferences.readerPreset,
+                    entries = mapOf(
+                        0 to stringResource(MR.strings.reader_preset_manga),
+                        1 to stringResource(MR.strings.reader_preset_manhwa),
+                        2 to stringResource(MR.strings.reader_preset_webtoon),
+                    ),
+                    title = stringResource(MR.strings.reader_preset_title),
+                    onValueChanged = { preset ->
+                        when (preset) {
+                            0 -> {
+                                readerPreferences.defaultReadingMode.set(ReadingMode.RIGHT_TO_LEFT.flagValue)
+                                readerPreferences.defaultOrientationType.set(ReaderOrientation.FREE.flagValue)
+                                readerPreferences.cropBorders.set(false)
+                                readerPreferences.cropBordersWebtoon.set(false)
+                            }
+                            1 -> {
+                                readerPreferences.defaultReadingMode.set(ReadingMode.WEBTOON.flagValue)
+                                readerPreferences.defaultOrientationType.set(ReaderOrientation.PORTRAIT.flagValue)
+                                readerPreferences.cropBorders.set(false)
+                                readerPreferences.cropBordersWebtoon.set(false)
+                            }
+                            2 -> {
+                                readerPreferences.defaultReadingMode.set(ReadingMode.CONTINUOUS_VERTICAL.flagValue)
+                                readerPreferences.defaultOrientationType.set(ReaderOrientation.PORTRAIT.flagValue)
+                                readerPreferences.cropBorders.set(false)
+                                readerPreferences.cropBordersWebtoon.set(false)
+                            }
+                        }
+                        true
+                    },
+                ),
+            ),
         )
     }
 

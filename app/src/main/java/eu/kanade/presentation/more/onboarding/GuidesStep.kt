@@ -45,6 +45,17 @@ internal class GuidesStep(
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
             )
 
+            Text(
+                text = stringResource(MR.strings.onboarding_guides_sources_title),
+                style = MaterialTheme.typography.titleMedium,
+            )
+            Text(stringResource(MR.strings.onboarding_guides_sources_body))
+
+            HorizontalDivider(
+                modifier = Modifier.padding(vertical = 8.dp),
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+            )
+
             Text(stringResource(MR.strings.onboarding_guides_returning_user, stringResource(MR.strings.app_name)))
             Button(
                 modifier = Modifier.fillMaxWidth(),

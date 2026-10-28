@@ -2,8 +2,10 @@ package eu.kanade.presentation.library.components
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import eu.kanade.tachiyomi.ui.library.LibraryItem
 import tachiyomi.domain.library.model.LibraryManga
@@ -27,6 +29,22 @@ internal fun LibraryComfortableGrid(
         contentPadding = contentPadding,
     ) {
         globalSearchItem(searchQuery, onGlobalSearchClicked)
+
+        val shelfItems = remember(items) { items.continueReadingShelfItems() }
+        if (shelfItems.isNotEmpty() && onClickContinueReading != null) {
+            item(
+                span = { GridItemSpan(maxLineSpan) },
+                contentType = { "library_continue_reading_shelf" },
+            ) {
+                ContinueReadingShelf(
+                    items = shelfItems,
+                    selection = selection,
+                    onClick = onClick,
+                    onLongClick = onLongClick,
+                    onClickContinueReading = onClickContinueReading,
+                )
+            }
+        }
 
         items(
             items = items,
