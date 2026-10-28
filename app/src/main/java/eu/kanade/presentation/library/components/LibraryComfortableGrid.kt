@@ -23,6 +23,7 @@ internal fun LibraryComfortableGrid(
     searchQuery: String?,
     onGlobalSearchClicked: () -> Unit,
 ) {
+    val shelfItems = remember(items) { items.continueReadingShelfItems() }
     LazyLibraryGrid(
         modifier = Modifier.fillMaxSize(),
         columns = columns,
@@ -30,7 +31,6 @@ internal fun LibraryComfortableGrid(
     ) {
         globalSearchItem(searchQuery, onGlobalSearchClicked)
 
-        val shelfItems = remember(items) { items.continueReadingShelfItems() }
         if (shelfItems.isNotEmpty() && onClickContinueReading != null) {
             item(
                 span = { GridItemSpan(maxLineSpan) },

@@ -25,6 +25,7 @@ internal fun LibraryList(
     searchQuery: String?,
     onGlobalSearchClicked: () -> Unit,
 ) {
+    val shelfItems = remember(items) { items.continueReadingShelfItems() }
     FastScrollLazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = contentPadding + PaddingValues(vertical = 8.dp),
@@ -39,7 +40,6 @@ internal fun LibraryList(
             }
         }
 
-        val shelfItems = remember(items) { items.continueReadingShelfItems() }
         if (shelfItems.isNotEmpty() && onClickContinueReading != null) {
             item(contentType = { "library_continue_reading_shelf" }) {
                 ContinueReadingShelf(
