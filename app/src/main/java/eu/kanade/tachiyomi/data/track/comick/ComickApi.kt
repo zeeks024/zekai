@@ -269,7 +269,7 @@ class ComickApi(
 
     companion object {
         private const val CLIENT_ID = "SGrUojDvbgqfhSCQbwfCjUPIccYMJdBH"
-        private const val REDIRECT_URI = "app.mihon://comick-auth"
+        private const val REDIRECT_URI = "com.zekslab.zekai://comick-auth"
 
         private const val LIBRARY_WRITE_SCOPE = "library:write"
         private const val SCOPES = "library:read $LIBRARY_WRITE_SCOPE offline_access"

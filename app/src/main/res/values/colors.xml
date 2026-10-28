@@ -2,6 +2,6 @@
 <resources>
     <color name="splash">@color/accent_blue</color>
 
-    <color name="accent_blue">#0058A0</color>
-    <color name="icon_background">#FAFAFA</color>
+    <color name="accent_blue">#7C5CFF</color>
+    <color name="icon_background">#0B1026</color>
 </resources>

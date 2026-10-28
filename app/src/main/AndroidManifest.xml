@@ -206,7 +206,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <!-- Comick requires native reverse-domain schemes  -->
-                <data android:scheme="app.mihon" />
+                <data android:scheme="com.zekslab.zekai" />
                 <data android:host="comick-auth" />
             </intent-filter>
         </activity>

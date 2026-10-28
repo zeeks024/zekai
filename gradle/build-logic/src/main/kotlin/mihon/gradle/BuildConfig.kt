@@ -24,8 +24,10 @@ val Project.Config: BuildConfig get() = object : BuildConfig {
         }
         ?: Distribution.LOCAL
 
-    override val includeTelemetry: Boolean = project.flag("include-telemetry")
-        ?: (distribution == Distribution.CI || distribution == Distribution.GITHUB)
+    // Zekai has no Firebase project configured. Telemetry stays off unless
+    // explicitly enabled with -Pinclude-telemetry, so no data is sent to
+    // the upstream project's analytics or crash reporting services.
+    override val includeTelemetry: Boolean = project.flag("include-telemetry") ?: false
 
     override val uploadCrashlyticsMapping: Boolean = includeTelemetry && (distribution == Distribution.GITHUB)
 
